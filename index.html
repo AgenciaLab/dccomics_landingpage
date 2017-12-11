@@ -44,6 +44,7 @@
                             <div class="panel-body" style="padding: 0">
                                 <div class="col-xs-12 content" style="background-color: #0e76bc">
                                     <img class="img-responsive" src="https://agencialab.github.io/dccomics_landingpage/img/content_bat_blue.jpg" />
+                                    <!-- <div class="youtube-player" data-id="sgyXqhFJIYs"></div> -->
                                     <iframe width="620" height="350" src="https://www.youtube.com/embed/sgyXqhFJIYs"></iframe>
                                     <button class="btnComprar" style="display: block">COMPRAR</button>
                                 </div>
@@ -330,7 +331,7 @@
                             <div class="panel-body" style="padding: 0">
                                 <div class="col-xs-12 content" style="background-color: #d02127">
                                     <img class="img-responsive" src="https://agencialab.github.io/dccomics_landingpage/img/content_flash_mobile.png" />
-                                    <iframe width="230" height="50" src="https://www.youtube.com/embed/sgyXqhFJIYs"></iframe>
+                                    <iframe width="230" height="150" src="https://www.youtube.com/embed/sgyXqhFJIYs"></iframe>
                                     <button class="btnComprarMob" style="display: block">COMPRAR</button>
                                 </div>
                             </div>
@@ -376,8 +377,7 @@
                         <div class="panel-heading" style="padding: 0px; border:0">
                             <h4 class="panel-title">
                                 <a id="acc6" href="#batpurple_mobile" class="accordion-toggle" data-toggle="collapse" data-parent="#accordionMob">
-                                    <img class="img-responsive" src="img/menu2/menu_bat_purple_mobile.jpg"
-                                    />
+                                    <img class="img-responsive" src="img/menu2/menu_bat_purple_mobile.jpg" />
                                 </a>
                             </h4>
                         </div>
@@ -395,8 +395,7 @@
                         <div class="panel-heading" style="padding: 0px; border:0">
                             <h4 class="panel-title">
                                 <a id="acc7" href="#villains_mobile" class="accordion-toggle" data-toggle="collapse" data-parent="#accordionMob">
-                                    <img class="img-responsive" src="img/menu2/menu_bat_villains_mobile.jpg"
-                                    />
+                                    <img class="img-responsive" src="img/menu2/menu_bat_villains_mobile.jpg" />
                                 </a>
                             </h4>
                         </div>
@@ -816,6 +815,34 @@
                 e.stopPropagation();
             }
         });
+
+        document.addEventListener("DOMContentLoaded",
+            function () {
+                var div, n,
+                    v = document.getElementsByClassName("youtube-player");
+                for (n = 0; n < v.length; n++) {
+                    div = document.createElement("div");
+                    div.setAttribute("data-id", v[n].dataset.id);
+                    div.innerHTML = labnolThumb(v[n].dataset.id);
+                    div.onclick = labnolIframe;
+                    v[n].appendChild(div);
+                }
+            });
+
+        function labnolThumb(id) {
+            var thumb = '<img src="https://i.ytimg.com/vi/ID/hqdefault.jpg">',
+                play = '<div class="play"></div>';
+            return thumb.replace("ID", id) + play;
+        }
+
+        function labnolIframe() {
+            var iframe = document.createElement("iframe");
+            var embed = "https://www.youtube.com/embed/ID?autoplay=1";
+            iframe.setAttribute("src", embed.replace("ID", this.dataset.id));
+            iframe.setAttribute("frameborder", "0");
+            iframe.setAttribute("allowfullscreen", "1");
+            this.parentNode.replaceChild(iframe, this);
+        }
     </script>
 </body>
 
