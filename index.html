@@ -836,8 +836,6 @@
     </style>
 
     <script type="text/javascript">
-
-
         // $("li").on("click", function (e) {
         //     $(".menutab").each(function (index, element) {
         //         $(element).attr("src", element.src.replace("hover", "normal"));
@@ -898,23 +896,17 @@
                 $(this).attr("src", e.target.src.replace("normal", "hover"));
             });
 
-            $(".collapse").on("show.bs.collapse", function (e) {
-                console.log("TESTE")
-                // $(".btn").html('<span class="glyphicon glyphicon-collapse-up"></span> Close');
-            });
-
             $("li").on("click", function (e) {
                 $(".menutab").each(function (index, element) {
                     $(element).attr("src", element.src.replace("hover", "normal"));
                 });
             })
 
-            /*$('#accordion').on('shown.bs.collapse', function (e) {
-                $('html, body').animate({
-                    scrollTop: $(e.target).offset().top - 124
-                }, 200);
-
-            });*/
+            // $('#accordion').on('shown.bs.collapse', function (e) {
+            //     $('html, body').animate({
+            //         scrollTop: $(e.target).offset().top - 124
+            //     }, 200);
+            // });
 
             // $(".accordion-toggle").on("click", function (e) {
             //     $(".accordion-toggle").each(function (index, element) {
